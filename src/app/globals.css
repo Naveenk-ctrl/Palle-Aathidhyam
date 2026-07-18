@@ -1,0 +1,315 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================
+   PALLE AATHIDHYAM — Design System
+   Premium Telugu Restaurant Website
+   ============================================ */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-poppins);
+  --font-heading: var(--font-cormorant);
+  --font-mono: var(--font-geist-mono);
+
+  /* Brand Colors */
+  --color-primary-green: #1F4D2E;
+  --color-secondary-green: #2E6A3D;
+  --color-cream: #F8F4EA;
+  --color-ivory: #FDF8EF;
+  --color-gold: #D4AF37;
+  --color-wood-brown: #6B4A2D;
+  --color-dark-brown: #3A2415;
+  --color-leaf-green: #4C8C4A;
+  --color-light-gold: #F1D27A;
+
+  /* Shadcn compatibility */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-chart-1: #1F4D2E;
+  --color-chart-2: #D4AF37;
+  --color-chart-3: #2E6A3D;
+  --color-chart-4: #F1D27A;
+  --color-chart-5: #4C8C4A;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Sidebar overrides */
+  --color-sidebar-ring: var(--ring);
+  --color-sidebar-border: var(--border);
+  --color-sidebar-accent-foreground: var(--accent-foreground);
+  --color-sidebar-accent: var(--accent);
+  --color-sidebar-primary-foreground: var(--primary-foreground);
+  --color-sidebar-primary: var(--primary);
+  --color-sidebar-foreground: var(--foreground);
+  --color-sidebar: var(--card);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: #FDF8EF;
+  --foreground: #1a1a1a;
+  --card: #FFFFFF;
+  --card-foreground: #1a1a1a;
+  --popover: #FFFFFF;
+  --popover-foreground: #1a1a1a;
+  --primary: #1F4D2E;
+  --primary-foreground: #FDF8EF;
+  --secondary: #F8F4EA;
+  --secondary-foreground: #1F4D2E;
+  --muted: #F8F4EA;
+  --muted-foreground: #6B4A2D;
+  --accent: #D4AF37;
+  --accent-foreground: #1F4D2E;
+  --destructive: #dc2626;
+  --border: #e5ddd0;
+  --input: #e5ddd0;
+  --ring: #D4AF37;
+
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #1a1a1a;
+  --sidebar-primary: #1F4D2E;
+  --sidebar-primary-foreground: #FDF8EF;
+  --sidebar-accent: #F8F4EA;
+  --sidebar-accent-foreground: #1F4D2E;
+  --sidebar-border: #e5ddd0;
+  --sidebar-ring: #D4AF37;
+}
+
+.dark {
+  --background: #0f1a14;
+  --foreground: #FDF8EF;
+  --card: #1a2e22;
+  --card-foreground: #FDF8EF;
+  --popover: #1a2e22;
+  --popover-foreground: #FDF8EF;
+  --primary: #2E6A3D;
+  --primary-foreground: #FDF8EF;
+  --secondary: #1a2e22;
+  --secondary-foreground: #FDF8EF;
+  --muted: #1a2e22;
+  --muted-foreground: #a8c4b0;
+  --accent: #D4AF37;
+  --accent-foreground: #FDF8EF;
+  --destructive: #ef4444;
+  --border: rgba(212, 175, 55, 0.2);
+  --input: rgba(212, 175, 55, 0.2);
+  --ring: #D4AF37;
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-poppins), 'Poppins', sans-serif;
+    overflow-x: hidden;
+  }
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-cormorant), 'Cormorant Garamond', serif;
+  }
+}
+
+/* ============================================
+   Custom Scrollbar
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-secondary-green);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-green);
+}
+
+/* ============================================
+   Custom Animations
+   ============================================ */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 5px rgba(212, 175, 55, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.6); }
+}
+
+@keyframes scroll-indicator {
+  0% { opacity: 0; transform: translateY(-8px); }
+  50% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(8px); }
+}
+
+@keyframes steam {
+  0% { opacity: 0; transform: translateY(0) scaleX(1); }
+  50% { opacity: 0.6; }
+  100% { opacity: 0; transform: translateY(-40px) scaleX(2); }
+}
+
+@keyframes particle-float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.6; }
+  50% { transform: translate(var(--tx, 50px), var(--ty, -80px)) rotate(180deg); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.animate-scroll-indicator {
+  animation: scroll-indicator 2s ease-in-out infinite;
+}
+
+.animate-steam {
+  animation: steam 2s ease-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft 0.6s ease-out forwards;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 0.6s ease-out forwards;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #D4AF37, #F1D27A, #D4AF37);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-texture-paper {
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+.bg-texture-wood {
+  background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='wood'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.01 0.1' numOctaves='5' seed='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23wood)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+.glass-effect {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.glass-dark {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background: rgba(31, 77, 46, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+/* Luxury shadow system */
+.shadow-luxury-sm {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.shadow-luxury-md {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.shadow-luxury-lg {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.04);
+}
+
+.shadow-luxury-xl {
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.06);
+}
+
+.shadow-gold {
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+}
+
+/* Selection color */
+::selection {
+  background: rgba(212, 175, 55, 0.3);
+  color: #1F4D2E;
+}
+
+/* Smooth image rendering */
+img {
+  image-rendering: auto;
+}
+
+/* Focus visible styles */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+  border-radius: 4px;
+}

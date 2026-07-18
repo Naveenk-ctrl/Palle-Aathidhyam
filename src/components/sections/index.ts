@@ -1,0 +1,15 @@
+export { default as HeroSection } from './HeroSection';
+export { default as WelcomeSection } from './WelcomeSection';
+export { default as WhyChooseSection } from './WhyChooseSection';
+export { default as SignatureDishesSection } from './SignatureDishesSection';
+export { default as ExperienceSection } from './ExperienceSection';
+export { default as ReviewsSection } from './ReviewsSection';
+export { default as StatisticsSection } from './StatisticsSection';
+export { default as ReservationCTASection } from './ReservationCTASection';
+export { default as ReservationSection } from './ReservationSection';
+export { default as FeedbackSection } from './FeedbackSection';
+export { default as InstagramSection } from './InstagramSection';
+export { default as GallerySection } from './GallerySection';
+export { default as ContactSection } from './ContactSection';
+export { default as AboutSection } from './AboutSection';
+export { default as MenuSection } from './MenuSection';
